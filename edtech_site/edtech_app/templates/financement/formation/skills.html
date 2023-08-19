@@ -1,0 +1,281 @@
+{% extends 'layouts/layout_light.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Sign IN {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+{% load static %}
+{% block content %}
+<!-- Header END -->
+{% include 'includes/landing_navbar.html' %}
+<!-- **************** SCRIPT **************** -->
+
+
+
+<!-- **************** MAIN CONTENT START **************** -->
+<br><br><br><br>
+
+
+
+
+<h6  style="font-size:50px;" ><strong><center>Minimalist Skills</center></strong></h6>
+
+<br><br><br>
+<table align="center" cellpadding="13px">
+<tr>
+<td>
+<div class="container">
+<div class="ligne-colorée"></div>
+<h5 style="font-size:30px;"><center>Minimalist 2.0</center></h5>
+  <div class="center">
+    <button class="button button5" href="#"><p class="mon-texte" style="font-size:18px;">Decouvrez la formation</p></button>
+  </div>
+</div>
+</td>
+
+<td>
+<div class="container">
+<div class="ligne-colorée"></div>
+<h5 style="font-size:30px;" ><center>Minimalist 3.0</center></h5>
+ <div class="center">
+    <button class="button button5" href><p class="mon-texte" style="font-size:18px;" >Decouvrez la formation</p></button>
+  </div>
+</div>
+</td>
+
+
+</tr>
+</table>
+
+
+
+
+	<!--Footer -->
+	<div id="bottomMenu">
+	<a href="#">A propos de nous</a>
+     <a href="#">Mentions légales</a>
+     <a href="#">Cookies</a>
+	 <a href="#">Boutique</a>
+     <a href="#">Contactez-nous</a>
+
+</div>
+
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.left-aligned {
+  margin-left: 0;
+}
+
+/* Réduire la largeur des cases */
+.container {
+   width: 90%; /* Augmenter la largeur */
+  max-width: 400px; /* Limiter la largeur maximale */
+}
+/*nouveau code du bar de menu*/
+
+.top-nav {
+  background-color: #ffffff;
+  color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   text-decoration: none;
+  padding: 10px;
+}
+
+
+
+.left-items a {
+  margin-right: 38px; /* Adjust the spacing between left-aligned items */
+  font-size: 18px; /* Adjust the font size of left-aligned items */
+   text-decoration: none; /* Remove the underline */
+}
+
+.right-items a {
+  margin-left: 26px; /* Adjust the spacing between right-aligned items */
+  font-size: 18px; /* Adjust the font size of right-aligned items */
+   text-decoration: none; /* Remove the underline */
+}
+
+
+
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+    margin-right: 38px;
+}
+
+.dropdown .dropbtn {
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: black;
+
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* code des styles d'écriture des options*/
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+/* code du hover des option*/
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Bottom menu */
+
+
+#bottomMenu {
+  position: fixed;
+  bottom: -50px; /* Adjust this value to hide the menu off-screen initially */
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #ffffff;
+  color: #a6a6a6;
+  text-align: center;
+  transition: bottom 0.3s ease-in-out;
+
+}
+
+#bottomMenu.show {
+  bottom: 0;
+}
+
+#bottomMenu a {
+  color: #a6a6a6;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 100px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0px auto;
+
+}
+
+#bottomMenu a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+
+
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}
+
+.button5 {
+  background-color: white;
+  color: black;
+  padding: 10px 32px;
+  border: 2px solid #555555;
+
+
+}
+   .button5:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  /* Nouvelle couleur de fond au survol */
+  border: 3px solid #008000;/* Nouvelle couleur du texte au survol */
+}
+
+/*centred box*/
+.container {
+  height: 500px;
+  width: 500px;
+  position: relative;
+  border: 2px solid #d9d9d9;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+    .ligne-colorée {
+      border-top: 8px solid #006600; /* Couleur de la ligne */
+    }
+
+ .mon-texte {
+      color: black; /* Couleur initiale du texte */
+	   font-weight: bold;
+	   font-size:16px;
+      transition: color 0.3s ease; /* Transition fluide */
+    }
+    .mon-texte:hover {
+      color: #006600; /* Nouvelle couleur du texte au survol */
+    }
+
+
+
+</style>
+<!-- MAIN END -->
+<!-- Bootstrap JS -->
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
+
+

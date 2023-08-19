@@ -1,0 +1,227 @@
+
+{% extends "layouts/layout.html" %}
+
+{% block title %} welcome to edtech {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+  .cour_title{
+    margin-left: 10px;
+    margin-top: 6px;
+  }
+  .timeline_cours{
+    margin-top: 10px;
+    max-height: 120px;
+    width: auto;
+    border: 1px solid #ddd;
+    display: flex;
+    border: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    justify-content: center;
+  }
+  .item {
+    margin: 15px 5px;
+    width: 33px;
+    height: 12px;
+    line-height: 40px;
+    background-color: #ddd;
+    margin-right: 0px;
+    display: inline;
+    padding: auto;
+  } 
+  .first{
+    margin-top: 5px;
+    padding: auto;
+    display: inline;
+  }
+  .end{
+    margin-top: 5px;
+    padding: auto;
+    display: inline;
+  }
+  .circle-icon {
+    background: #1bcf60;
+    padding:10px;
+    border-radius: 50%;
+    margin-left: 2px;
+}
+.flex-container{
+  display: flex;
+  background-color: #ffffff;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+.box{
+  height: auto;
+  width: auto;
+  padding: 5px 8px;
+}
+video{
+  width: 100%;
+  height: auto;
+}
+.video{
+  width: 66%;
+  background-color: rgb(249, 250, 250);
+  padding-left: 10px;
+  height: 400px;
+}
+.edit{
+  width: 34%;
+}
+
+
+#content {
+  max-width: 40vw;
+}
+.tabContainer {
+  background: rgb(247, 247, 247);
+  border: .45px solid rgb(252, 252, 252);
+  margin: 0 auto;
+  height: 100%;
+}
+.tabContent {
+  padding: 10px;
+  text-align: left;
+  min-height:400px;
+  color:rgb(32, 31, 31);
+}
+/* Hide all but first tab */
+.tabContent > div:not(:first-child) {
+  display: none;
+}
+
+.tabContainer > .tabs {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  height: auto;
+}
+.tabs li {
+  float: left;
+  display: flex;
+  flex: 1;
+  
+}
+.tabs a {
+  position: relative;
+  background: rgb(243, 243, 243);
+  border-top: 3px solid rgba(107, 199, 114, 0);
+  padding: 1em .5em;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(141, 141, 141);
+  margin: 0 .1em 0 0;
+  font-size: 1em;
+  flex: 1;
+  transition: all .35s ease;
+}
+.tabs a.active {
+  border-top: 3px solid #28af3a;
+  color: rgb(32, 31, 31);
+  background: rgb(252, 252, 252);
+}
+.tabs a:hover {
+  background: inherit;
+  color: rgb(102, 100, 100);
+}
+.btn_note{
+    border-radius: 30px;
+    padding: 9px 15px;
+    font-size: 15px;
+    background-color: #169631;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+   
+}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+<main>
+ 
+    <!-- MAIN TITLE Starts Edtech -->
+    <div class="cour_title">
+     
+        <h3>logo | {{videos.cour.title}}</h3>
+    
+     
+    </div>
+  
+    <div class='parent'>
+    <div class="timeline_cours">
+      <span class="first"><i class="fa-solid fa-house-chimney fa-1x circle-icon" style="color: rgb(255, 255, 255);"></i></span>
+      {% for vid in list_vid %}
+      <a class="item" href="{% url 'student_vid' vid.id%}"  title="This is some text I want to display."></a>
+      <a class="item" href="{% url 'student_vid' vid.id%}"></a>
+    
+      {% endfor %}
+      <span class="end"><i class="fa-solid fa-trophy fa-1x circle-icon" style="color: rgb(255, 255, 255);"></i></span>
+    </div>
+    </div>
+    <div class="flex-container">
+      <div class="box video">
+      <video class="wp-video-shortcode" id="video-457235-1_html5" width="520" height="601" preload="metadata"  controls>
+      <source type="video/mp4" src="{{videos.video.url}}">
+      </video>
+      
+      <p style="margin:0;display:inline;float:right" >{{videos.uploaded}}</p>
+      <p>Discription</p>
+
+    </div>
+  <div class="box edit" id="content">
+    <div class="tabContainer">
+      <ul class="tabs">
+        <li><a src="tab1" href="javascript:void(0);" class="active">prend des notes</a></li>
+        <li><a src="tab2" href="javascript:void(0);">Aide</a></li>
+        <li><a src="tab3" href="javascript:void(0);">enseignant</a></li>
+      </ul>
+      <div class="tabContent">
+        <div id="tab1">
+          {{form.media}}
+          {{form}}
+          <button class="btn_note">Enregister</button>
+        </div>
+        <div id="tab2">
+          <span>les hints <b>interesting</b>.</span>
+        </div>
+        <div id="tab3">
+          <span>consigne des enseignant <b>interesting</b>.</span>
+        </div>
+      </div>
+      <!-- /tabContent -->
+    </div>
+  </div>
+  </div>
+  </main>
+
+{% endblock content %}
+
+{% block javascripts %}
+<script>
+  $("#content").on("click", ".tabContainer .tabs a", function(e) {
+  e.preventDefault(),
+  $(this)
+    .parents(".tabContainer")
+    .find(".tabContent > div")
+    .each(function() {
+      $(this).hide();
+    });
+  
+  $(this)
+    .parents(".tabs")
+    .find("a")
+    .removeClass("active"),
+    $(this).toggleClass("active"), $("#" + $(this).attr("src")).show();
+});
+
+</script>
+{% endblock javascripts %}

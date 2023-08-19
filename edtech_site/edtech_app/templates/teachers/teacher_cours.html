@@ -1,0 +1,133 @@
+{% extends "layouts/layout_teacher.html" %}
+{% load static %}
+{% block title %} welcome to edtech {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+
+  .has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+</style>
+
+{% endblock stylesheets %}
+
+{% block content %}
+{% include "includes/navbar_teacher.html" %}
+<div class="container-fluid">
+    <!-- title -->
+    <div class="row mx-2  mb-2">
+  <div class="col-md-6 col-xl-3 ">
+    <div class="card white_card p-0 border-0 shadow-sm">
+        <div class="card-body m-0">
+            <h6 class="text-dark">Cours en progression</h6>
+            <h6 class="text-right text-dark"><i class='bx bxs-book icon float-left'></i><span>1041</span></h6>  
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-xl-3 m-0 ">
+  <div class="card white_card p-0 border-0 shadow-sm">
+      <div class="card-body m-0">
+          <h6 class="text-dark">Cours Publiés</h6>
+          <h6 class="text-right text-dark"><i class='bx bxs-video icon float-left'></i></i><span>11</span></h6>    
+      </div>
+  </div>
+</div>
+<div class="col-md-3 col-xl-3 ms-2">
+  <div class="form-group has-search">
+    <span class="bx bxs-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search">
+  </div>
+</div> 
+<div class="col-md-3 col-xl-2 ">
+  <div class="form-group has-search px-5 mx-5 justify-content-end">
+   <button class=" btn btn-success px-1 mx-4"> <i class='bx bx-plus-medical icon mx-2 my-0'></i>Nouveau cour </button>
+  </div>
+</div> 
+</div>
+    <!-- all cards -->
+ 
+  <div class="row mx-2  mb-2 ">
+    
+    <div class="col-xl-6 col-sm-3 col-4"> 
+      <div class="card shadow-sm">
+        
+          <div class="h6 ms-3 mt-1">Vente</div>  
+          
+          <div class="card-body">
+              <div class="media-body text-left " style="height: 250px;">
+                <div class="chart-container mx-auto mb-2" style=" height:40vh; width:41vw">
+                  <canvas id="teacher_vente"></canvas>
+                </div>  
+              </div>
+          </div>
+        </div>
+        </div>
+     
+            <div class="col-xl-6 col-sm-3 col-4 "> 
+                <div class="card shadow-sm">
+                  
+                       <div class="h6 ms-3 mt-1">Cours Progression</div> 
+                      
+                    <div class="card-body ">
+                        <div class="media-body text-left " style="height: 250px;">
+                          <h3></h3>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+                 </div>
+
+                 <div class="row mx-2 mt-2">
+                    <div class="col-xl-6 col-sm-3 col-4 "> 
+                        <div class="card shadow-sm ">
+                           
+                              <div class="h6 ms-2 mt-2">chat </div>
+                              
+                            <div class="card-body ">
+                                <div class="media-body text-left " style="height: 130px;">
+                                  <h3></h3>
+                                
+                                </div>
+                            </div>
+                          </div>
+                          </div>
+                 
+            
+              <div class="col-xl-6 col-sm-3 col-4 "> 
+                <div class="card shadow-sm ">
+                    
+                      <div class="h6 ms-2 mt-2"> Meilleur Encagement</div>
+                    
+                    <div class="card-body ">
+                        <div class="media-body text-left " style="height: 130px;">
+                          <h3></h3>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+        </div>
+   
+      
+
+ 
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+<script src="{% static 'assets/js/teacher-vente.js' %}"></script>
+{% endblock javascripts %}
+

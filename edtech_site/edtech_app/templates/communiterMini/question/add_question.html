@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+<form method="post" action="{% url 'add_question' %}" class="js_create_question">
+    {% csrf_token %}
+    <div class="modal-header">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <h5 class="modal-title" id="exampleModalLabel">Creer Une question</h5>
+  </div>
+    <div class="modal-body mx-4 px-5">
+      {{form|crispy}}
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary">Ajouter Question</button>
+    </div>
+  </form>
+

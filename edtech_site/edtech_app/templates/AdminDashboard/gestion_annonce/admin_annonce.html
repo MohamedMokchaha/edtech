@@ -1,0 +1,65 @@
+{% extends "layouts/layout_lte.html" %}
+
+{% block title %} welcome to edtech {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+{% include "includes/navbar_teacher.html" %}
+<div class="container-fluid px-2">
+    <h6 class="text-center mt-2">Teacher Dashboard</h2>
+    <div class="row mx-2 pt-2">
+        <div class="col-xl-4 col-sm-6 col-6"> 
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="media-body text-center">
+                      <span>messages</span>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-xl-4 col-sm-6 col-6"> 
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="media-body text-center">
+                      <span>Questions</span>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-xl-4 col-sm-6 col-6"> 
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="media-body text-center">
+                      <span>Annonces</span>
+                    </div>
+                </div>
+              </div>
+          </div>
+  </div>
+  <div class="row mx-2 pt-2">
+    <div class="col-xl-12 col-sm-6 col-12"> 
+      <div class="card shadow-sm">
+          <div class="card-body">
+              <div class="media-body text-left " style="height: 470px;">
+                <h3>Static</h3>
+              
+              </div>
+          </div>
+        </div>
+    </div>
+    
+    </div>
+   
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+<script>
+</script>
+{% endblock javascripts %}

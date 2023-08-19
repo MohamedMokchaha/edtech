@@ -1,0 +1,165 @@
+{% extends "layouts/layout_teacher.html" %}
+{% load static %}
+{% block title %} welcome to edtech {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+  table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+   background-color: #29cc97;
+   top: 14px;
+   width: 16px;
+   height: 16px;
+   line-height: 16px;
+   border: 0;
+   font-weight: bold;
+   box-shadow: none;
+  }
+
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
+  background-color: fec400;
+}
+</style>
+
+{% endblock stylesheets %}
+
+{% block content %}
+{% include "includes/navbar_teacher.html" %}
+<div class="container-fluid px-2">
+    <!-- title -->
+    <!-- all cards -->
+ 
+  <div class="row mx-2 pt-1">
+    <div class="col-xl-6 col-sm-3 col-4"> 
+      <div class="card shadow-sm">
+          <div class="card-body">
+              <div class="media-body text-left " style="height: 275px;">
+                <h6>Etudiant inscrit</h6>
+                <div class="chart-container mx-auto my-0" style=" height:16vh; width:34vw">
+                  <canvas id="student_inscription"></canvas>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-sm-3 col-4 "> 
+        <div class="card shadow-sm">
+            <div class="card-body ">
+                <div class="media-body text-left p-0 m-0 " style="height: 275px;">
+                  <h6>Etudiants Chart</h6>
+                  <div class="chart-container mx-auto my-0" style=" height:12vh; width:30vw">
+                
+                    <canvas id="student_number"></canvas>
+              </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row mx-2 pt-1">
+        <div class="col-xl-12 col-sm-12 col-12"> 
+          <div class="card shadow-sm">
+              <div class="card-body pt-1"  style="overflow-y: scroll;height: 320px;">
+                  <div class="media-body text-left m-0 pt-2">
+                   <h6 class="">list des Etudiants</h6>
+                   <table class="table my-2">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+              </div>
+            </div>
+        </div>
+     
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+<script src="{% static 'assets/js/teacher_studen-chartt.js' %}"></script>
+<script>
+  jQuery(document).ready(function() {
+    jQuery('#responsive-data-table').DataTable({
+      
+    });
+  });
+</script>
+{% endblock javascripts %}
+

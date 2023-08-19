@@ -1,0 +1,65 @@
+{% load static %}
+<nav class="sidebar">
+  <header>
+      <div class="image-text">
+          <span class="image"></span>
+          <div class="text logo-text">
+              <span class="name">EdTech</span>
+              <span class="profession">Minimaliste</span>
+          </div>
+      </div>
+      
+  </header>
+  <div class="menu-bar">
+      <div class="">
+              <li class="">
+                  <a href="{% url 'admin_dashboard' %}">
+                      <i class='bx bx-home-alt icon' ></i>
+                      <span class="text nav-text">Dashboard</span>
+                  </a>
+              </li>
+              <li class="#">
+                  <a href="{% url 'admin_cours' %}">
+                      <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                      <span class="text nav-text">cours</span>
+                  </a>
+              </li>
+              <li class="">
+                  <a href="{% url 'admin_etudiant' %}">
+                      <i class='bx bx-bell icon'></i>
+                      <span class="text nav-text">Etudiant</span>
+                  </a>
+              </li>
+              <li class="">
+                  <a href="#"><i class='bx bx-pie-chart-alt icon' ></i><span class="text nav-text">Transactions</span></a>
+              </li>
+
+              <li class="">
+                  <a href="{% url 'admin_formateur' %}">
+                      <i class='bx bx-heart icon' ></i>
+                      <span class="text nav-text">Formateur</span>
+                  </a>
+              </li>
+              <li class="">
+                  <a href="{% url 'admin_notif' %}">
+                      <i class='bx bx-wallet icon' ></i>
+                      <span class="text nav-text">Notifications</span>
+                  </a>
+              </li>
+              <li class="">
+                <a href="{% url 'admin_annonces' %}">
+                    <i class='bx bx-wallet icon' ></i>
+                    <span class="text nav-text">Communiter</span>
+                </a>
+            </li>
+      </div>
+      <div class="bottom-content">
+          <li class="">
+              <a href="#">
+                  <i class='bx bx-log-out icon' ></i>
+                  <span class="text nav-text">Logout</span>
+              </a>
+          </li>  
+      </div>
+  </div>
+</nav>

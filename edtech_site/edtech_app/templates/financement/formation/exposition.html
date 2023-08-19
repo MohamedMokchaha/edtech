@@ -1,0 +1,754 @@
+{% extends 'layouts/layout_light.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Sign IN {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+{% load static %}
+{% block content %}
+<!-- Header END -->
+
+<!-- **************** SCRIPT **************** -->
+
+<link rel="icon" type="image/x-icon" href="{% static 'assets/img/logos/minimaliste.png' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'assets/img/logos/minimaliste.png' %}"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+
+<!-- **************** MAIN CONTENT START **************** -->
+
+
+{% include 'includes/financement_navbar.html' %}
+<br>
+<br>
+<br>
+<br>
+
+
+<!-- The App Section -->
+<div class="container">
+
+  <div class="row" style="display: flex; justify-content: center;">
+
+
+    <div class="column-66">
+	 <h1 class="xlarge-font"><b>Comment financer votre formation ?</b></h1>
+
+       <p><span style="font-size:18px">Quelle que soit votre situation professionnelle, nous avons forcément une solution de financement pour vous..</span>
+	  <br><br><br><br><a href="{% url 'financiement:candidate' %}" class="buttonB buttonB">Démarrer ma candidature</a>
+	</p></div>
+    <div class="column-33">
+       <img src="{% static 'assets/img/formation/formationpro.jpeg' %}" width="500" height="480">
+    </div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div style="background-color: #008000; color: white; padding: 25px;">
+<h6 style="font-size:50px;" bgcolor="003300"><strong><center>Découvrer nos formations</center></strong></h6>
+</div>
+
+<br><br>
+
+<div class="container" id="Salarié" style="display: flex; justify-content: center;">
+  <div class="row" style="text-align: center;">
+    <h1 style="font-size: 26px;"><b>Dans quel domaine souhaitez-vous vous former ?</b></h1>
+    <br>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+      <button class="button button1 filter-button" data-filter="Data&amp;IA">Data&amp;IA</button>
+      <button class="button button5 filter-button" data-filter="Fondamentaux-numériques">Fondamentaux numériques</button>
+      <button class="button button4 filter-button" data-filter="Coder-avec-ChatGPT">Coder avec ChatGPT</button>
+    </div>
+    <br>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+      <button class="button button7 filter-button" data-filter="Minimalist-skills">Minimalist skills</button>
+      <button class="button button9 filter-button" data-filter="Blockchain-et-WEB3">Blockchain et WEB3</button>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<!-- Fondamentaux numérique -->
+<div style="display: flex; justify-content: center;">
+<div class="responsive">
+  <div class="gallery Fondamentaux-numériques">
+    <a target="_blank" href="#">
+       <img src="{% static 'assets/img/formation/html2.jpg' %}">
+    </a>
+	<br>
+	<div class="p1">Fondamentaux numériques</div>
+    <div class="desc">HTML/CSS</div>
+
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery Fondamentaux-numériques">
+    <a target="_blank" href="#">
+      <img src="{% static 'assets/img/formation/sql2.jfif' %}">
+    </a>
+	<br>
+	<div class="p1">Fondamentaux numériques</div>
+    <div class="desc">SQL</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery Fondamentaux-numériques">
+    <a target="_blank" href="#">
+      <img src="{% static 'assets/img/formation/pythondt.jpg' %}">
+    </a>
+	<br>
+	<div class="p1">Fondamentaux numériques</div>
+    <div class="desc">PYTHON</div>
+  </div>
+</div>
+</div>
+<div class="clearfix"></div>
+
+<br>
+<!-- ligne2 -->
+<div style="display: flex; justify-content: center;">
+<div class="responsive">
+  <div class="gallery Blockchain-et-WEB3">
+    <a target="_blank" href="#">
+        <img src="{% static 'assets/img/formation/Blockchain-in-healthcare-1.jpg' %}">
+    </a>
+	<br>
+	<div class="p1">Blockchain et WEB3</div>
+    <div class="desc">Blockchain</div>
+
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery Blockchain-et-WEB3">
+    <a target="_blank" href="#">
+      <img src="{% static 'assets/img/formation/web3.jpg' %}">
+    </a>
+	<br>
+	<div class="p1">Blockchain et WEB3</div>
+    <div class="desc">WEB3</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery Data&amp;IA">
+    <a target="_blank" href="#">
+      <img src="{% static 'assets/img/formation/greenml.jpg' %}">
+    </a>
+	<br>
+	<div class="p1"> Data&amp;IA </div>
+    <div class="desc">Green machine learning</div>
+  </div>
+</div>
+</div>
+<div class="clearfix"></div>
+<br>
+
+
+<!-- ligne 3 -->
+<div style="display: flex; justify-content: center;">
+<div class="responsive">
+  <div class="gallery Data&amp;IA">
+    <a target="_blank" href="#" id="html">
+      <img src="{% static 'assets/img/formation/greenIA.jpeg' %}">
+    </a>
+	<br>
+	<div class="p1"> Data&amp;IA </div>
+    <div class="desc">Green IA</div>
+
+  </div>
+</div>
+
+
+<div class="responsive" id="sql">
+  <div class="gallery Data&amp;IA">
+    <a target="_blank" href="img_forest.jpg">
+     <img src="{% static 'assets/img/formation/greendatasc.png' %}" width="500" height="500">
+
+    </a>
+	<br>
+	<div class="p1">Data&amp;IA </div>
+    <div class="desc">Green Data science</div>
+  </div>
+</div>
+
+<div class="responsive" id="python">
+  <div class="gallery Coder-avec-ChatGPT">
+    <a target="_blank" href="img_lights.jpg">
+        <img src="{% static 'assets/img/formation/chat-gpt-comment.jpg' %}" width="500" height="500">
+    </a>
+	<br>
+	<div class="p1">Coder avec ChatGPT </div>
+    <div class="desc">ChatGPT Guide d'utilisation</div>
+  </div>
+</div>
+</div>
+<div class="clearfix"></div>
+
+<br>
+<!-- Fondamentaux numérique -->
+<div class=" w3-center " style="display: flex; justify-content: center;">
+<div class="responsive">
+  <div class="gallery Coder-avec-ChatGPT" width="300" height="100">
+     <img src="{% static 'assets/img/formation/pdf-prompt-banniere.webp' %}" width="500" height="500" id="html">
+
+    </a>
+	<br>
+	<div class="p1">Coder avec ChatGPT </div>
+    <div class="desc">Prompts pour ChatGPT</div>
+
+  </div>
+</div>
+
+
+<div class="responsive" id="sql">
+  <div class="gallery Coder-avec-ChatGPT">
+    <a target="_blank" href="img_forest.jpg">
+      <img src="{% static 'assets/img/formation/maxresdefault.jpg' %}" width="500" height="500">
+    </a>
+	<br>
+	<div class="p1">Coder avec ChatGPT</div>
+    <div class="desc">Débugger avec ChatGPT</div>
+  </div>
+</div>
+
+<div class="responsive" id="python">
+  <div class="gallery Minimalist-skills">
+    <a target="_blank" href="img_lights.jpg">
+      <img src="{% static 'assets/img/formation/minimalist.webp' %}" width="600" height="400">
+    </a>
+	<br>
+	<div class="p1">Minimalist skills</div>
+    <div class="desc">Minimalist 2.0</div>
+  </div>
+</div>
+</div>
+<div class="clearfix"></div>
+
+<br>
+
+
+
+<div class="clearfix"></div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+	<!--Footer -->
+	<div id="bottomMenu">
+	<a href="#">A propos de nous</a>
+     <a href="mentions-légale.html">Mentions légales</a>
+     <a href="#">Cookies</a>
+	 <a href="Boutique.html">Boutique</a>
+     <a href="#">Contactez-nous</a>
+
+</div>
+
+
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+
+		<script>
+
+function openRightMenu() {
+  document.getElementById("rightMenu").style.display = "block";
+}
+
+function closeRightMenu() {
+  document.getElementById("rightMenu").style.display = "none";
+}
+</script>
+
+
+
+<!-- fonction pour trier les containers selon lers classe  -->
+
+<script>
+const filterButtons = document.querySelectorAll('.filter-button');
+const galleries = document.querySelectorAll('.gallery');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filterValue = button.getAttribute('data-filter');
+
+    galleries.forEach(gallery => {
+      if (gallery.classList.contains(filterValue)) {
+        gallery.classList.remove('hide');
+      } else {
+        gallery.classList.add('hide');
+      }
+    });
+
+    // Réorganiser les containers après le classement
+    const responsive = document.querySelector('.responsive');
+    responsive.style.justifyContent = 'flex-start'; // Réinitialiser la justification
+
+    const visibleGalleries = Array.from(galleries).filter(gallery => !gallery.classList.contains('hide'));
+    visibleGalleries.forEach(gallery => {
+      responsive.appendChild(gallery);
+    });
+  });
+});
+
+// Afficher tous les containers initialement
+galleries.forEach(gallery => {
+  gallery.classList.remove('hide');
+});
+
+</script>
+
+
+
+
+
+<style>
+
+
+
+body {
+  margin: 0;
+
+}
+
+
+.column-66 {
+  float: left;
+  width: 100%;
+  padding: 30px;
+  text-align: center; /* Centrer le contenu */
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 4px 12px; /* Ajuster les marges intérieures pour compacter les boutons */
+  font-size: 16px;
+  margin: 4px 6px; /* Ajuster les marges extérieures pour espacement entre les boutons */
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.w3-button a {
+  margin-right: 10px; /* Ajoute un espace de 10 pixels à droite de chaque icône */
+ font-size: 24px;
+
+}
+
+.w3-buttonA a {
+  margin-right: 10px; /* Ajoute un espace de 10 pixels à droite de chaque icône */
+ font-size: 24px;
+
+}
+
+
+
+
+/*Bottom menu */
+
+
+#bottomMenu {
+  position: fixed;
+  bottom: -50px; /* Adjust this value to hide the menu off-screen initially */
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #ffffff;
+  color: #a6a6a6;
+  text-align: center;
+  transition: bottom 0.3s ease-in-out;
+
+}
+
+#bottomMenu.show {
+  bottom: 0;
+}
+
+#bottomMenu a {
+  color: #a6a6a6;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 100px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0px auto;
+
+}
+
+#bottomMenu a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+
+
+
+
+* {
+  box-sizing:border-box;
+
+
+}
+.container {
+  padding: 10px;
+   margin: auto;
+  width: 80%;
+
+
+}
+
+
+
+.column-66 {
+  float: left;
+  width: 49.66666%;
+  padding: 30px;
+}
+
+.column-33 {
+  float: left;
+  width: 33.33333%;
+  padding: 20px;
+}
+
+.large-font {
+  font-size: 48px;
+}
+
+.xlarge-font {
+  font-size: 42px
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #04AA6D;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .column-66,
+  .column-33 {
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    margin: auto;
+  }
+}
+/*code bes bottons decouvrez la formations et inscrivez vous*/
+
+.buttonB {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+   padding: 14px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.buttonB {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.buttonB:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+
+
+
+/*ligne coloré*/
+.colored-line {
+  border: none;
+  height: 2px;
+  background-color:#4CAF50; /* Remplacez par la couleur souhaitée */
+}
+
+
+
+
+
+
+
+
+
+
+
+/*code des boutton coloré*/
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 4px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.button1 {
+  background-color: white;
+  color: #339966;
+  border: 2px solid #339966;
+}
+
+
+
+.button7 {
+  background-color: white;
+  color: #cc7a00;
+  border: 2px solid #cc7a00;
+}
+
+.button5 {
+  background-color: white;
+  color: #555555;
+  border: 2px solid #555555;
+}
+
+
+.button4 {
+  background-color: white;
+  color: #0000cc;
+  border: 2px solid #0000cc;
+}
+
+
+
+.button9 {
+  background-color: white;
+  color: #b30000;
+  border: 2px solid #b30000;
+}
+
+
+
+
+/*CODE DES IMAGES */
+div.gallery {
+  border: 1px solid #ccc;
+
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 200px;
+}
+
+div.desc {
+  padding: 8px;
+
+  font-weight: bold;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  margin: 6px 8px; /*pour faire espaces entre les images */
+  padding: 0 6px;
+  float: left;
+  width: 20.99999%;
+   /*display: flex;
+  flex-direction: row ;
+  justify-content:  space-between;  */
+}
+
+.hide {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*style d'écriture sous les images en vert */
+.p1 {
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: green;
+  font-size:16px;
+}
+
+/*code su search box in the navbar */
+
+
+/*style bu box extrieur avant hover */
+form{
+    position: relative;
+    top: 40%;
+    left: 95%;
+    transform: translate(-100%,0%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 2px solid #ffffff;/*couleur du box exterieur */
+    padding: 5px;
+
+}
+/*position du mot search dans le box*/
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 45.5px;
+    height: 45.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.8em;
+    transition: all 1s;
+
+}
+/*style du box exterieur après le hover */
+form:hover{
+    width: 300px;
+    cursor: pointer;
+	 border: 2px solid #f1f1f1;
+
+
+
+}
+/*style du field input dnas le box après hover*/
+form:hover input{
+    display: block;
+	width: 100%;
+	float:left;
+
+}
+/*style d'icone après le hover  */
+form:hover .fa{
+    background: #ffffff;
+    color: #00802b;
+}
+
+
+/*style du box exterieur après le hover */
+form:hover{
+    width: 300px;
+    cursor: pointer;
+	 border: 2px solid #f1f1f1;
+
+
+
+}
+/*style du field input dnas le box après hover*/
+form:hover input{
+    display: block;
+	width: 100%;
+	float:left;
+
+}
+/*style d'icone après le hover  */
+form:hover .fa{
+    background: #ffffff;
+    color: #00802b;
+}
+
+.image-button {
+  border: none; /* Supprimer la bordure par défaut du bouton */
+  background-color: transparent; /* Rendre l'arrière-plan transparent */
+}
+
+.image-frame {
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Définir le cadre transparent */
+  border-radius: 8px; /* Ajouter des coins arrondis au cadre */
+  padding: 4px; /* Ajouter un peu d'espace entre le cadre et l'image */
+}
+
+</style>
+
+
+<!-- MAIN END -->
+<!-- Bootstrap JS -->
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
+
+

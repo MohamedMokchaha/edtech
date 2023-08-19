@@ -1,0 +1,40 @@
+{% extends "layouts/layout_boostrap.html" %}
+
+{% block title %} welcome to edtech {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<main>
+    {% include 'includes/navbar_student.html' %}
+      <div class="row mx-2" id="ads">
+         
+        <!-- Category Card -->
+        <h4 class="text-center">Votre Apprentisage</h4>
+        {% for cour in student_cour %}
+        <div class="col-2" style="width: 280px;">
+            <div class="card rounded" style="height: 250px;">
+                <div class="card-image "> 
+               
+                </div>
+                <div class="card-image-overlay m-auto">
+                   
+                </div>
+                <div class="card-body text-center">
+                    <div class="ad-title m-auto">
+                        <h6>{{cour.course.title}}</h6>
+                    </div>
+                    <a class="ad-btn" href="{% url 'student_videos' cour.course.id %}">continuer</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </main>
+{% endblock content %}
+
+{% block javascripts %}
+<script>
+</script>
+{% endblock javascripts %}

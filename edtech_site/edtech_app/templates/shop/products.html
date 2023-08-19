@@ -1,0 +1,131 @@
+{% extends 'layouts/layout_light.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Sign IN {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+{% include 'includes/landing_navbar.html' %}
+<main class="mx-0 py-0">
+	<section class="py-2">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="p-3 text-center rounded-3">
+						<h1 class="m-0">Nos Produits Ecoresponsables</h1>
+						<!-- Breadcrumb -->
+						<div class="d-flex justify-content-center">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb breadcrumb-dots mb-0">
+									<li class="breadcrumb-item"><a href="#">Edtech</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Boutique</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	Page Banner END -->
+	
+	<!-- =======================
+	Page content START -->
+	<section class="pt-0">
+		<div class="container">
+	
+			<!-- Filter bar START -->
+			<form class="p-1 my-1 z-index-9 position-relative ">
+				<div class="row g-3 d-flex justify-content-end border-bottom pb-3">
+					<!-- Input -->
+					<div class="col-xl-3 ">
+						<input class="form-control me-1" type="search" placeholder="chercher un produit">
+					</div>
+	
+					<!-- Select item -->
+					 
+					<!-- Button -->
+					<div class="col-xl-1">
+						<button type="button" class="btn btn-success mb-0 rounded z-index-1 w-100"><i class="fas fa-search"></i></button>
+					</div>
+				</div> <!-- Row END -->
+			</form>
+			<!-- Filter bar END -->
+	
+			<div class="row mt-3">
+				<!-- Main content START -->
+				<div class="col-12">
+	
+					<!-- Course Grid START -->
+					<div class="row g-4">
+	
+						<!-- Card item START -->
+					{% for product in products %}
+						<div class="col-sm-6 col-lg-4 col-xl-3">
+							<div class="card shadow h-100" style ="width:18em">
+								<!-- Image -->
+								<img src="{{product.thumbnail.thumbnail.url}}" class="card-img-top" alt="course image" style="height:210px;width:280px">
+								<!-- Card body -->
+								<div class="card-body px-2">
+									<!-- Badge and icon -->
+									
+									<!-- Divider -->
+									<hr class="my-0">
+									<!-- Title -->
+									<h6 class="card-title mt-1"><a href="{% url 'shop:product_detail' product.id %}">{{product.name}}</a></h6>
+									<!-- Badge and Price -->
+									<div class="d-flex justify-content-between align-items-center mb-0">
+										<div><a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> Categorie </a></div>
+										<!-- Price -->
+										<h5 class="text-success mb-0">$226</h5>
+										
+									</div>
+									<ul class="list-inline mb-0">
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+										<li class="list-inline-item ms-2 h6 fw-light">4.5/5.0</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- Card item END -->
+						{% endfor %}		
+	
+					</div>
+					<!-- Course Grid END -->
+	
+					<!-- Pagination START -->
+					<div class="col-12">
+						<nav class="mt-4 d-flex justify-content-center" aria-label="navigation">
+							<ul class="pagination pagination rounded mb-0">
+								<li class="page-item mb-0"><a class="page-link text-success" href="#" tabindex="-1"><i class="fas fa-angle-double-left"></i></a></li>
+								<li class="page-item mb-0"><a class="page-link text-success" href="#">1</a></li>
+								<li class="page-item mb-0"><a class="page-link text-success" href="#">2</a></li>
+								<li class="page-item mb-0"><a class="page-link text-success" href="#">..</a></li>
+								<li class="page-item mb-0"><a class="page-link text-success" href="#">6</a></li>
+								<li class="page-item mb-0"><a class="page-link text-success" href="#"><i class="fas fa-angle-double-right"></i></a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- Pagination END -->
+				</div>
+				<!-- Main content END -->
+			</div><!-- Row END -->
+		</div>
+	</section>
+
+</main>
+<!-- MAIN END -->
+<!-- Bootstrap JS -->
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% for question in questions %}
+  <div class="post-bar">
+  <div class="post_topbar">
+  <div class="usy-dt">
+  <div class="usy-name">
+  <h3>{{question.author}}</h3>
+  <span>{{question.created_at}}</span>
+  </div>
+  </div>
+  </div>
+  <div class="job_descp mx-3 mt-3 mb-0">
+    <h3>Titre: {{question.title}}</h3>
+    </div>
+  <div class="epi-sec">
+  <ul class="descp mx-3 mt-0">
+      <h4>Question: {{question.question}}</h4>
+  </ul>
+  </div>
+  
+  <div class="job-status-bar mt-0">
+  <ul class="like-com">
+
+  <li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comment 15</a></li>
+  </ul>
+  </div>
+  </div>
+{% endfor %}

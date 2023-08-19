@@ -1,0 +1,87 @@
+{% load static %}
+<nav class="sidebar close">
+  <header>
+      <div class="image-text">
+          
+
+          <div class="text logo-text">
+              <span class="name">EdTech</span>
+              <span class="profession">Minimaliste</span>
+          </div>
+      </div>
+
+     
+  </header>
+
+  <div class="menu-bar">
+      <div class="">
+
+        
+              <li class="">
+                  <a href="{% url 'student_dash' %}">
+                      <i class='bx bx-home-alt icon' ></i>
+                      <span class="text nav-text">Dashboard</span>
+                  </a>
+              </li>
+
+              <li class="#">
+                  <a href="{% url 'list_videos' %}">
+                      <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                      <span class="text nav-text">cours</span>
+                  </a>
+              </li>
+
+              <li class="">
+                  <a href="#">
+                      <i class='bx bx-bell icon'></i>
+                      <span class="text nav-text">Profile</span>
+                  </a>
+              </li>
+
+              <li class="">
+                  <a href="{% url 'student_cours' %}">
+                      <i class='bx bx-pie-chart-alt icon' ></i>
+                      <span class="text nav-text">mon cours</span>
+                  </a>
+              </li>
+
+              <li class="">
+                  <a href="{% url 'annonce' %}">
+                      <i class='bx bx-heart icon' ></i>
+                      <span class="text nav-text">Annonce</span>
+                  </a>
+              </li>
+
+              <li class="">
+                  <a href="#">
+                      <i class='bx bx-wallet icon' ></i>
+                      <span class="text nav-text">programme</span>
+                  </a>
+              </li>
+
+      </div>
+
+      <div class="bottom-content">
+          <li class="">
+              <a href="#">
+                  <i class='bx bx-log-out icon' ></i>
+                  <span class="text nav-text">Logout</span>
+              </a>
+          </li>
+
+          <li class="mode">
+              <div class="sun-moon">
+                  <i class='bx bx-moon icon moon'></i>
+                  <i class='bx bx-sun icon sun'></i>
+              </div>
+              <span class="mode-text text">Dark mode</span>
+
+              <div class="toggle-switch">
+                  <span class="switch"></span>
+              </div>
+          </li>
+          
+      </div>
+  </div>
+
+</nav>

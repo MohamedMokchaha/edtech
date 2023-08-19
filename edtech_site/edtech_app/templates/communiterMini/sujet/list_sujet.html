@@ -1,0 +1,21 @@
+<div class="row my-4 mx-1">
+{% for subject in subjects %}
+<div class="col-lg-6 col-sm-12 my-2 mr-1">
+<div class="card" style="width: 450px;">
+    <div class="row no-gutters">
+       <div class="col-sm-4 px-0 py-0">
+          <img class="card-img mx-0" style="height: 120px;" src="{{subject.images.url}}" alt="Suresh Dasari Card">
+       </div>
+       <div class="col-sm-8">
+          <div class="card-body">
+             <h5 class="card-title">{{subject.title}}</h5>
+             <p class="card-text">Suresh Dastrtttttttttttttttttttttttari is a founder and technical lead developer in tutlane.</p>
+            <a href="{% url 'detail_subject' subject.id %}">view</a>
+           
+          </div>
+       </div>
+    </div>
+ </div>
+</div>
+{% endfor %}
+</div>

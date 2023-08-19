@@ -1,0 +1,134 @@
+{% extends "layouts/layout_teacher.html" %}
+{% load static %}
+{% block title %} welcome to edtech {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+  .float-left {
+    float: left !important;
+}
+.float-right {
+    float: right !important;
+}
+.text-right {
+    text-align: right !important;
+}
+.green_card{
+  background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+}
+.white_card{
+  background: linear-gradient(45deg, #f1fffd, #d6fff7);
+}
+</style>
+
+{% endblock stylesheets %}
+
+{% block content %}
+{% include "includes/navbar_teacher.html" %}
+<div class="container-fluid px-2">
+   
+    <div class="row mx-1 pt-1">
+      <div class="col-md-6 col-xl-3 m-0">
+        <div class="card green_card order-card p-0 border-0 ">
+            <div class="card-body m-0">
+                <h6 class="text-white">Total earning</h6>
+                <h5 class="text-right text-white"><i class="bx bx-line-chart icon float-left"></i><span>23</span></h2>
+                <p class="h6 m-b-0 text-white">ce moins<span class="float-right">213</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3 m-0 ">
+      <div class="card white_card p-0 border-0 shadow-sm">
+          <div class="card-body m-0">
+              <h6 class="text-dark">Total etudent</h6>
+              <h5 class="text-right text-dark"><i class='bx bxs-group icon float-left'></i></i><span>1000</span></h2>
+              <p class="h6 m-b-0 text-dark">ce moins<span class="float-right">103</span></p>
+          </div>
+      </div>
+     
+  </div>
+  <div class="col-md-6 col-xl-3 m-0 ">
+    <div class="card white_card p-0 border-0 shadow-sm">
+        <div class="card-body m-0">
+            <h6 class="text-dark">Total Cours</h6>
+            <h5 class="text-right text-dark"><i class='bx bxs-book icon float-left'></i><span>1041</span></h2>
+            <p class="h6 m-b-0 text-dark">ce moins<span class="float-right">113</span></p>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-xl-3 m-0 ">
+  <div class="card white_card p-0 border-0 shadow-sm">
+      <div class="card-body m-0">
+          <h6 class="text-dark">Total videos</h6>
+          <h5 class="text-right text-dark"><i class='bx bxs-video icon float-left'></i></i><span>11</span></h5>
+          <p class="h6 m-b-0 text-dark">ce moins<span class="float-right">3</span></p>
+      </div>
+  </div>
+</div>
+  </div>
+  <div class="row mx-1 my-0 pt-2 ">
+    <div class="col-xl-9 col-sm-6 col-12"> 
+      <div class="card shadow-sm">
+          <div class="card-body p-0">
+              <div class="media-body  " style="height: 280px;">
+                <h6 class="mt-2 mx-4">working activity</h6>
+                <div class="chart-container mx-auto my-0" style=" height:36vh; width:53vw">
+                  <canvas id="working_activity"></canvas>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-sm-3 col-12 "> 
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="media-body text-left " style="height: 36vh;">
+                  <h6>Meilleur Cours</h6>
+                
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row my-0 mx-1 pt-2">
+      
+        <div class="col-xl-4 col-sm-6 col-12 "> 
+            <div class="card shadow-sm p-0" >
+                <div class="card-body p-1 m-1" style="height: 205px;">
+                    <div class="media-body text-left">
+                    
+                      <h6 class="text-left text-dark"><i class='bx bxs-chat icon float-left'></i><span>Chat</span></h6>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-xl-4 col-sm-6 col-12"> 
+            <div class="card shadow-sm">
+                <div class="card-body p-1 m-1" style="height: 205px;">
+                    <div class="media-body text-left">
+                    
+                      <h6 class="text-left text-dark"><i class='bx bx-question-mark icon float-left'></i><span>Questions</span></h6>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-xl-4 col-sm-6 col-12"> 
+            <div class="card shadow-sm">
+                <div class="card-body p-1 m-1" style="height: 205px;">
+                    <div class="media-body text-left">
+                  
+                      <h6 class="text-left text-dark"><i class='bx bxs-bell icon float-left'></i><span>Notifications</span></h6>
+                    </div>
+                </div>
+              </div>
+          </div>
+        
+  </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+<script src="{% static 'assets/js/teacher_chart.js' %}"></script>
+{% endblock javascripts %}
+

@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EdTechMinimalist</title>
+
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'assets/css/sidebar_style.css' %}">
+
+  <!-- style goes here -->
+  {% block stylesheets %}{% endblock stylesheets %}
+</head>
+<body>
+  {% include 'includes/sidebar_main.html' %}
+    <section class="home">
+    {% block content %}
+    {% endblock content %} 
+    </section>
+    <!-- scripts js -->
+  {% include 'includes/scripts.html' %}
+  {% block javascripts %}
+  {% endblock javascripts %}      
+</body>
+</html>

@@ -1,0 +1,131 @@
+{% extends 'layouts/layout_blog.html' %}
+
+{% block title %} Tables {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+<style>
+.bg-red-700{
+    background-color: red;
+    color: rgb(255, 255, 255);
+}
+.bg-gray-600{
+    background-color: rgb(205, 206, 205);
+    color: white;
+}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+{% include "includes/navbar.html" %}
+
+<main>
+  <div class="main-section mt-1">
+  <div class="container">
+  <div class="main-section-data">
+  <div class="row m-4">
+  <div class="col-lg-8 col-md-8 no-pd">
+  <div class="card" id="blog">
+  <div class="card-body">
+<h4><img class="rounded-circle mx-2" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" width="40">{{blog.author}}</h4>
+<span class="px-2"><i class="fa-regular fa-clock"></i><span class="mx-2">{{blog.date}}</span><span>
+<h3 class="text-dark my-4">{{subject.title}}</h3>
+<p>{{blog.desc|safe}}</p>
+<ul class="react-links text-left list_inline " style="float: right !important;">
+    <li class="list-inline-item"><i class="fa-regular fa-thumbs-up"></i> like 150</li>
+    <li class="list-inline-item"><i class="fa-regular fa-thumbs-down"></i></i> dislike 10</li>
+    </ul>
+  </div>
+  
+  <div class="card-footer bg-white border-gray-4 ">
+    {% if user in subject.follows.all %}
+    <form method="POST" action="{% url 'subject_follow' %}" class="follow_subject">
+        {% csrf_token %}
+    <button type="submit" class="btn sub-btn bg-red-700" name="subject_id" value="{{subject.id}}">follow</button>
+  
+   </form>
+   {% else %}
+  
+   <form method="POST" action="{% url 'subject_follow' %}" class="follow_subject">
+        {% csrf_token %}
+    <button type="submit" class="btn sub-btn bg-gray-600" name="subject_id" value="{{subject.id}}">follow</button>
+  
+   </form>
+   {% endif %}
+  </div>
+  </div>
+  </div>
+  <div class="col-lg-4 pd-right-none no-pd ">
+    <div class="card bg-white">
+        <div class="card-header">
+            info sujet
+        </div>
+        <div class="card-body">
+        <ul class="inline">
+        <li class="list-inline-item">
+        
+        <span class="sub_count" style="display:block !important; padding-right: 10px;">Abonnee:{{follows}}</span>
+        </li>
+        <li class="list-inline-item">
+        
+        <span>publications:5</span>
+        </li>
+        
+        
+        </ul>
+    </div>
+        </div>
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </main>
+  
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+<script>
+    $(document).ready(function(){
+    $('.follow_subject').submit(function(e){
+        e.preventDefault()
+        const subject = $('.sub-btn').val();
+        const url=$(this).attr('action');
+        const csrftoken = $('input[name=csrfmiddlewaretoken]').val();
+        console.log(subject)
+        $.ajax({
+            method:'POST',
+            url:url,
+            headers:{'X-CSRFToken':csrftoken},
+            data:{
+                'subject_id':subject
+            },
+            success:function(reponse){
+                if(reponse.subscribed==true){
+                    $('.sub-btn').addClass("bg-red-700")
+                 $('.sub-btn').removeClass("bg-gray-600")
+                
+                }else{
+                $('.sub-btn').addClass("bg-gray-600")
+                $('.sub-btn').removeClass("bg-red-700")
+             
+                }
+                $('.sub_count').text("abonner"+reponse.num_subs)
+            },
+            error:function(reponse){
+                console.log(reponse);
+            }
+        })
+    })
+})
+</script>
+{% endblock javascripts %}
+

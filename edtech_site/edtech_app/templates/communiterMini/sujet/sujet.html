@@ -1,0 +1,117 @@
+{% extends 'layouts/layout_mini.html' %}
+
+{% block title %} Tables {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+<style>
+.form {
+    position: relative
+}
+
+.form .fa-search {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #9ca3af
+}
+
+.form span {
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db
+}
+
+.left-pan {
+    padding-left: 7px
+}
+
+.left-pan i {
+    padding-left: 10px
+}
+
+.form-input {
+    height: 45px;
+    text-indent: 33px;
+    border-radius: 10px
+}
+
+.form-input:focus {
+    box-shadow: none;
+    border: none
+}
+ .btn{
+    border-radius: 30px;
+    padding: 9px 15px;
+    font-size: 15px;
+    background-color: #169631;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+{% include "includes/navbar.html" %}
+
+<main>
+  <div class="main-section mt-1">
+    
+  <div class="container p-0 ">
+    
+  <div class="main-section-data">
+      
+  <div class="row">
+ 
+  <div class="col-lg-9 col-md-8 no-pd">
+  <div class="main-ws-sec" id="subject">
+ 
+  
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="form"> <i class="fa fa-search"></i> <input type="text" class="form-control form-input" placeholder="Search anything..."> <span class="left-pan"><i class="fa fa-microphone"></i></span> </div>
+        </div>
+        
+    </div>
+ 
+ 
+  <div class="posts-section">
+{% include './list_sujet.html' %}
+  </div>
+  </div>
+  </div>
+  <div class="col-lg-3 pd-right-none no-pd ">
+    <div class="widget widget-about bg-white">
+    <div class="sd-title ">
+      <h3>Creer Votre sujet</h3>
+     </div>
+     <a href="{% url 'add_sujet' %}" type="button" class="btn bg-success text-white" >Publier votre sujet</a>
+  
+  
+  </div>
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </main>
+  
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+<script>
+
+</script>
+{% endblock javascripts %}

@@ -1,0 +1,64 @@
+{% load static %}
+
+<div class="w3-sidebar w3-light-grey w3-bar-block w3-card w3-animate-right" style="display: none; right: 0px; width: 15%;" id="rightMenu">
+
+
+  <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large"> ×</button>
+
+  <a href="#" class="w3-button w3-bar-block w3-xlarge" style="width:95%">
+   <i class="fas fa-shopping-cart" style="width:35%" aria-hidden="true"></i>
+   <i class="fas fa-user-alt" style="width:40%" aria-hidden="true"></i>
+   <i class="fas fa-globe-asia" style="width:40%" aria-hidden="true"></i></a>
+
+<div class="w3-dropdown-hover w3-light-grey">
+    <button class="w3-button" style="font-size:16px">Formations
+      <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block w3-light-grey">
+      <a href="formations exp2.html" class="w3-bar-item w3-button">Fondamentaux numériqueses </a>
+     <a href="{% url 'financiement:data&IA' %}" class="w3-bar-item w3-button">Formations Data &amp; IA</a>
+	 <a href="{% url 'financiement:Blockchain' %}" class="w3-bar-item w3-button">Blockchain et web3</a>
+     <a href="{% url 'financiement:skills' %}" class="w3-bar-item w3-button">MInimalist Skills </a>
+	   <a href="{% url 'financiement:chatgpt' %}" class="w3-bar-item w3-button">Coder avec chatGPT</a>
+    </div>
+  </div>
+
+
+  <a href="financement .html" class="w3-bar-item w3-button" style="font-size:16px">Financements</a>
+  <a href="blog 1.html" class="w3-bar-item w3-button" style="font-size:16px">Blog</a>
+
+    <div class="w3-dropdown-hover w3-light-grey">
+    <button class="w3-button" style="font-size:16px">Espace entreprise
+      <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block w3-light-grey">
+      <a href="#" class="w3-bar-item w3-button" style="font-size:16px">Former votre team</a>
+      <a href="#" class="w3-bar-item w3-button" style="font-size:16px">Data consulting</a>
+	  <a href="#" class="w3-bar-item w3-button" style="font-size:16px">Data marketing</a>
+      <a href="#" class="w3-bar-item w3-button" style="font-size:16px">Data design </a>
+	   <a href="#" class="w3-bar-item w3-button" style="font-size:16px">Partenariat</a>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+<div class="w3-white">
+
+
+  <button class="w3-button w3-white w3-xlarge w3-right" onclick="openRightMenu()"> <i class="fas fa-bars" style="font-size: 36px;color:grey;" aria-hidden="true"></i></button>
+
+   <button class="w3-button w3-white w3-xlarge w3-left">
+   <img src="{% static 'assets/img/logos/minimaliste.png' %}" alt="logo" width="250" height="150" class="image-frame">
+ </button>
+ <!-- search form -->
+   <form action="">
+  <input type="search" placeholder="Rechercher ...">
+  <i class="fa fa-search" aria-hidden="true"></i>
+</form>
+
+</div>

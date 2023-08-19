@@ -1,0 +1,93 @@
+{% extends "layouts/layout_boostrap.html" %}
+
+{% load static %}
+{% block title %} welcome to edtech {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<style>
+
+
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="container-fluid px-0">
+  
+  {% include 'includes/navbar_edt.html' %}
+
+<div class="row mx-2 pt-1">
+  <div class="col-xl-8 col-sm-6 col-12"> 
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="media-body text-left " style="height: 370px;">
+              <h6>chart</h6>
+              <canvas id="Student_ActiviteChart" width="400" height="120"></canvas>
+            </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-xl-4 col-sm-3 col-12 "> 
+      <div class="card shadow-sm">
+          <div class="card-body">
+              <div class="media-body text-left " style="height: 370px;">
+                <h6>Learning rate</h6>
+                <div class="chart-container mx-auto" style=" height:11vh; width:23vw">
+                <canvas id="Student_LearningChart"></canvas>
+              </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row mx-2 pt-3">
+      <div class="col-xl-3 col-sm-6 col-12"> 
+        <div class="card shadow-sm">
+            <div class="card-body m-1 p-1"  style="height: 200px;">
+                <div class="media-body text-left">
+                  
+                  <small>Mes Cours</small>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12"> 
+          <div class="card shadow-sm">
+              <div class="card-body m-1 p-1" style="height: 200px;">
+                  <div class="media-body text-left">
+                    <small>Meilleur encagement</small>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12"> 
+          <div class="card shadow-sm">
+              <div class="card-body m-1 p-1" style="height: 200px;">
+                  <div class="media-body text-left">
+                
+                    <small >Tache a venir</small>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-sm-6 col-12"> 
+          <div class="card shadow-sm">
+              <div class="card-body m-1 p-1" style="height: 200px;">
+                  <div class="media-body text-left p-0">
+                
+                    <small>Meilleur Encagement</small>
+                  </div>
+              </div>
+            </div>
+        </div>
+      
+</div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+<script src="{% static 'assets/js/dash_charts.js' %}"></script>
+
+{% endblock javascripts %}

@@ -1,0 +1,50 @@
+{% for blog in blogs %}
+  <div class="post-bar">
+  <div class="post_topbar">
+  <div class="usy-dt">
+  <div class="usy-name">
+  <h3>{{blog.author}}</h3>
+  <span>{{blog.created_at}}</span>
+  </div>
+  </div>
+  </div>
+  <div class="epi-sec">
+  <ul class="descp">
+  </ul>
+  </div>
+  <div class="job_descp">
+  <h3>{{blog.title}}</h3>
+  
+  <p>{{blog.desc|safe}} <a href="{% url 'detail_blog' blog.id %}" >view more</a></p>
+  <ul class="skill-tags">
+  <li><a href="#" title="">HTML</a></li>
+ 
+  <li><a href="#" title="">{{blog.category}}</a></li>
+  
+  </ul>
+  <ul class="like-com">
+    <li><a href="#"><i class="fas fa-comment-alt"></i> Comment 15</a></li>
+</ul>
+  
+  </div>
+  <div class="job-status-bar p-0">
+ 
+    <div class="bg-white py-3">
+        <div class="d-flex flex-row align-items-start mx-0">
+            <form method="POST" action="{% url 'blog_comment' blog.id %}" id="comment_sub">
+                {% csrf_token %}
+                <div class="row height d-flex justify-content-left ">
+                    <div class="col-md-8">
+                        <div class="form" style="width: 700px "><input type="text" name="blog_comment" class="form-control bg-light form-input" placeholder="Commenter ce blog..."> <span class="left-pan"><i class="fa-solid fa-paper-plane" style="color: rgb(9, 160, 9);"></i></span> </div>
+                    </div>
+                </div>
+            </div>
+   
+    </form>
+    </div>
+  </div>
+
+  
+    
+  </div>
+{% endfor %}

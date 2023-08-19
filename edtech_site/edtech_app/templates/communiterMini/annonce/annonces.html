@@ -1,0 +1,230 @@
+{% extends 'layouts/layout_mini.html' %}
+
+{% block title %} Tables {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+<style>
+.btn{
+    border-radius: 30px;
+    padding: 9px 15px;
+    font-size: 15px;
+    background-color: #169631;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+}
+.form {
+    position: relative;
+    width:500px
+}
+
+.form span {
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db
+}
+
+.left-pan {
+    padding-left: 7px
+}
+
+.left-pan i {
+    padding-left: 10px
+}
+
+.form-input {
+    height: 44px;
+    text-indent: 33px;
+    border-radius: 30px
+}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+{% include "includes/navbar.html" %}
+
+<main>
+  <div class="main-section mt-1">
+  <div class="container">
+  <div class="main-section-data">
+  <div class="row">
+  <div class="col-lg-3 col-md-4 pd-left-none no-pd">
+  <div class="main-left-sidebar no-margin">
+  <div class="suggestions full-width">
+  <div class="sd-title">
+  <h3>Categories</h3>
+  </div>
+  <div class="suggestions-list">
+    {% for cat in categories %}
+  <div class="suggestion-usd">
+  <div class="sgt-text">
+  <h4>Jessica William</h4>
+  <span>Graphic Designer</span>
+  </div>
+  <span><i class="la la-plus"></i></span>
+  </div>
+  {% endfor %}
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="col-lg-6 col-md-8 no-pd">
+  <div class="main-ws-sec" id="annonce">
+  <div class="post-topbar">
+  <div class="user-picy">
+    <div class="row height d-flex ">
+      <div class="col-md-6">
+          <div class="form">  <input type="text" class="form-control form-input" placeholder="chercher Annonce..."> <span class="left-pan"><i class="fa fa-search"></i></span> </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  <div class="posts-section">
+{% include "./list_annonces.html" %}
+  </div>
+  </div>
+  </div>
+  <div class="col-lg-3 pd-right-none no-pd">
+  <div class="right-sidebar">
+  <div class="widget widget-about">
+
+  <h3>Creer votre Annonce</h3>
+  <span>Partager de savoir</span>
+  <div class="sign_link">
+    <a type="button" class="btn bg-success text-white m-4 js-load-annonce" data-url="{% url 'add_annonce' %}">Creer Annonce</a>
+  </div>
+  </div>
+  <div class="widget widget-jobs">
+  <div class="sd-title">
+   <h3>Meilleurs formations</h3>
+  <i class="la la-ellipsis-v"></i>
+  </div>
+  <div class="jobs-list">
+    {% for cour in bestcours %}
+  <div class="job-info">
+  <div class="job-details">
+  <h3></h3>
+  <p>L.</p>
+  </div>
+  <div class="hr-rate">
+  <span>$25/hr</span>
+  </div>
+  </div>
+{% endfor %}
+  
+  </div>
+  </div>
+  <div class="widget widget-jobs">
+  <div class="sd-title">
+  <h3>Nos enseignants</h3>
+  <i class="la la-ellipsis-v"></i>
+  </div>
+  <div class="jobs-list">
+    {% for teach in teachers %}
+  <div class="job-info">
+    
+  <div class="job-details">
+  <h3>Junior Seo Designer</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+  </div>
+  <div class="hr-rate">
+  <span>$25/hr</span>
+  </div>
+  </div>
+  {% endfor %}
+  </div>
+  </div>
+  <div class="widget suggestions full-width">
+  <div class="sd-title">
+  <h3>Meilleurs blog </h3>
+  <i class="la la-ellipsis-v"></i>
+  </div>
+  <div class="suggestions-list">
+
+  {% for blog in blogs %}
+  <div class="suggestion-usd">
+  <div class="sgt-text">
+  <h4>Jessica William</h4>
+  <span>Graphic Designer</span>
+  </div>
+  <span><i class="la la-plus"></i></span>
+  </div>
+  {% endfor %}
+  <div class="view-more">
+  <a href="#" title="">View More</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </main>
+  
+  <div class="modal fade bd-example-modal-lg" id="modal-annonce" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content m-4">
+
+      </div>
+    </div>
+    </div>
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+<script>
+  var loadAnnonceForm = function () {
+      var btn = $(this);
+      $.ajax({
+        url: btn.attr('data-url'),
+        type: 'get',
+        dataType: 'json',
+        beforeSend: function () {
+          $("#modal-annonce").modal("show");
+        },
+        success: function (data) {
+          $("#modal-annonce .modal-content").html(data.html_form);
+        }
+      });
+    };
+    var saveAnnonceForm = function () {
+      var form = $(this);
+      $.ajax({
+        url: form.attr("action"),
+        data: form.serialize(),
+        type: form.attr("method"),
+        dataType: 'json',
+        success: function (data) {
+          if (data.form_is_valid) {
+            $("#annonce").html(data.html_annonce_list);
+            $("#modal-annonce").modal("hide");
+            Swal.fire({
+                icon: 'success',
+                title: 'success',
+                text:'voter annonce est ajouter',
+                showConfirmButton: false,
+                timer: 1500})
+
+          }
+          else {
+            $("#modal-annonce .modal-content").html(data.html_form);
+          }
+        }
+      });
+      return false;
+    }
+    $(".js-load-annonce").click(loadAnnonceForm);
+    $("#modal-annonce").on("submit",".js_create_annonce",saveAnnonceForm)
+</script>
+
+{% endblock javascripts %}

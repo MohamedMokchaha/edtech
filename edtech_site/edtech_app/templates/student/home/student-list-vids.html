@@ -1,0 +1,39 @@
+{% extends "layouts/layout_boostrap.html" %}
+
+{% block title %} welcome to edtech {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<main>
+    {% include 'includes/navbar_student.html' %}
+      <div class="row mx-2" id="ads">
+         
+        <!-- Category Card -->
+        {% for cour in cours %}
+        <div class="col-2" style="width: 280px;">
+            <div class="card rounded" style="height: 250px;">
+                <div class="card-image "> 
+                <img class="card-img" src="{{cour.image.url}}" alt="Alternate Text" style="height: 130px;" />
+                </div>
+                <div class="card-image-overlay m-auto">
+                    <span class="card-detail-badge">Used</span>
+                </div>
+                <div class="card-body text-center">
+                    <div class="ad-title m-auto">
+                        <h6>{{cour.title}}</h6>
+                    </div>
+                    <a class="ad-btn" href="{% url 'video_content' cour.id %}">View</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </main>
+{% endblock content %}
+
+{% block javascripts %}
+<script>
+</script>
+{% endblock javascripts %}

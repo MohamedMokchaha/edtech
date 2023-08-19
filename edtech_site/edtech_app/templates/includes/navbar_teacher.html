@@ -1,0 +1,25 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
+    <a href="#" class="navbar-brand mx-4 mt-0 pt-0 " style="color: #3fad3f">Edtech<b class="mx-2">Enseignant</b></a>  		
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-end">		
+    
+      <div class="navbar-nav ml-auto">	
+        <a href="#" class="nav-item nav-link my-auto mx-2"><img style="height: 24px !important;" src="{% static 'assets/img/logos/notification-bell.png' %}"/></a>
+        <div class="nav-item dropdown">
+          <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action mx-3"><img src="{% static 'assets/img/logos/profile.png' %}"/> {{request.user}} <b class="caret mr-2"></b></a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+            <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>
+            <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a>
+            <div class="divider dropdown-divider"></div>
+            <a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

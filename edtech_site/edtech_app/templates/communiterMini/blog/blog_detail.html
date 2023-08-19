@@ -1,0 +1,74 @@
+{% extends 'layouts/layout_blog.html' %}
+
+{% block title %} Tables {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+<style>
+
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+{% include "includes/navbar.html" %}
+
+<main>
+  <div class="main-section mt-1">
+  <div class="container">
+  <div class="main-section-data">
+  <div class="row m-4">
+
+  <div class="col-lg-8 col-md-8 no-pd">
+  <div class="card" id="blog">
+  
+  <div class="card-body">
+<h4><img class="rounded-circle mx-2" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" width="40">{{blog.author}}</h4>
+<span class="px-2"><i class="fa-regular fa-clock"></i><span class="mx-2">{{blog.date}}</span><span>
+<h3 class="text-dark my-4">{{blog.title}}</h3>
+<p>{{blog.desc|safe}}</p>
+<ul class="react-links text-left list_inline " style="float: right !important;">
+    <li class="list-inline-item"><i class="fa-regular fa-thumbs-up"></i> like 150</li>
+    <li class="list-inline-item"><i class="fa-regular fa-thumbs-down"></i></i> dislike 10</li>
+    </ul>
+  </div>
+  <h5 class="mx-2">comments 03</h5>
+  <div class="card-footer bg-white border-gray-4 ">
+    {% for comment in comments %}
+    <div class="my-2 bg-light border-radius-lg shadow-sm p-2">
+    <h5 class="lead">{{comment.user}}</h5>
+    <div class="px-0" style="font-size: 12px;"><i class="fa-regular fa-clock"></i><span class="mx-1">{{comment.created_at}}</span></div>
+    <p class="my-1">{{comment.comment}}</p>
+</div>
+    {% endfor %}
+  </div>
+  </div>
+  </div>
+  <div class="col-lg-4 pd-right-none no-pd ">
+    <div class="widget widget-about bg-light">
+    <div class="sd-title ">
+      <h3>Creer blog</h3>
+     </div>
+  
+  <a href="{% url 'add_blog' %}" type="button" class="btn bg-success text-white m-4" >Publier votre blog</a>
+  
+  </div>
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </main>
+  
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+{% endblock javascripts %}
+

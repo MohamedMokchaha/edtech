@@ -1,0 +1,387 @@
+
+body {
+  margin: 0;
+
+}
+
+
+
+.w3-button a {
+  margin-right: 10px; /* Ajoute un espace de 10 pixels à droite de chaque icône */
+ font-size: 24px;
+
+}
+
+.w3-buttonA a {
+  margin-right: 10px; /* Ajoute un espace de 10 pixels à droite de chaque icône */
+ font-size: 24px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Bottom menu */
+
+
+#bottomMenu {
+  position: fixed;
+  bottom: -50px; /* Adjust this value to hide the menu off-screen initially */
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #ffffff;
+  color: #a6a6a6;
+  text-align: center;
+  transition: bottom 0.3s ease-in-out;
+
+}
+
+#bottomMenu.show {
+  bottom: 0;
+}
+
+#bottomMenu a {
+  color: #a6a6a6;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 100px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0px auto;
+
+}
+
+#bottomMenu a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+
+
+
+
+* {
+  box-sizing:border-box;
+
+
+}
+.container {
+  padding: 64px;
+   margin: auto;
+  width: 80%;
+
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+.column-66 {
+  float: left;
+  width: 66.66666%;
+  padding: 20px;
+}
+
+.column-33 {
+  float: left;
+  width: 33.33333%;
+  padding: 20px;
+}
+
+.large-font {
+  font-size: 48px;
+}
+
+.xlarge-font {
+  font-size: 54px
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #04AA6D;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .column-66,
+  .column-33 {
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    margin: auto;
+  }
+}
+/*code bes bottons decouvrez la formations et inscrivez vous*/
+.buttonA {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 14px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+ border-radius: 8px;
+}
+
+.buttonA {
+  background-color: #009933;
+  color: white;
+  border: 2px solid #009933;
+}
+.buttonB {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+   padding: 14px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.buttonB {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.buttonB:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+.buttonC {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+   padding: 14px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+
+}
+
+.buttonC {
+  background-color: #f1f1f1;
+  color: black;
+  border: 2px solid #4CAF50;
+
+}
+.buttonC:hover {
+  background-color: #4CAF50;
+  color: f1f1f1;
+}
+
+.buttonD {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+   padding: 12px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.buttonD {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.buttonD:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+/*ligne coloré*/
+.colored-line {
+  border: none;
+  height: 2px;
+  background-color:#4CAF50; /* Remplacez par la couleur souhaitée */
+}
+
+/*code du nav bar 2*/
+
+#navbar {
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+   width: 20%;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ffffff;
+  color: #4CAF50;
+}
+
+#navbar a.active {
+  background-color: #ffffff;
+  color: black;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 85%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+/*bordure du box contenant salarie , demandeur d'emploi*/
+.box {
+  border: 1px solid #808080; /* Ajoute une bordure de 2 pixels de largeur, solide et noire */
+  padding: 10px; /* Ajoute de l'espace à l'intérieur de la boîte */
+}
+
+/*ligne coloré gris */
+.colored-line1 {
+  border: none;
+  height: 1px;
+  background-color:#808080; /* Remplacez par la couleur souhaitée */
+}
+
+/*ligne coloré blanc */
+.colored-line3 {
+  border: none;
+  height: 2px;
+  background-color: #ffffff; /* Remplacez par la couleur souhaitée */
+}
+
+/*ligne verticale*/
+.vl {
+  border-left: 6px solid green;
+  height: 200px;
+}
+
+/*code su search box in the navbar */
+
+
+/*style bu box extrieur avant hover */
+form{
+    position: relative;
+    top: 40%;
+    left: 95%;
+    transform: translate(-100%,0%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 2px solid #ffffff;/*couleur du box exterieur */
+    padding: 5px;
+
+}
+/*position du mot search dans le box*/
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 45.5px;
+    height: 45.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.8em;
+    transition: all 1s;
+
+}
+/*style du box exterieur après le hover */
+form:hover{
+    width: 300px;
+    cursor: pointer;
+	 border: 2px solid #f1f1f1;
+
+
+
+}
+/*style du field input dnas le box après hover*/
+form:hover input{
+    display: block;
+	width: 100%;
+	float:left;
+
+}
+/*style d'icone après le hover  */
+form:hover .fa{
+    background: #ffffff;
+    color: #00802b;
+}
+
+
+

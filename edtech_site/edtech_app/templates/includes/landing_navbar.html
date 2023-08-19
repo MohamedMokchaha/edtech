@@ -1,0 +1,52 @@
+{% load static %}
+<html>
+<head>
+    <link href="{% static 'assets/css/css_landing/navbar.css' %}" rel="stylesheet" />
+    <style>
+        /* Ajoutez le style pour les liens en noir */
+        .top-nav a {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+	<!-- Left-aligned items go here -->
+    <div class="left-items">
+        <div class="dropdown">
+         <a href="{% url 'financiement:formations' %}"   <button class="dropbtn">Formations
+            </button></a>
+            <div class="dropdown-content">
+                <a href="Fondamentaux numérique.html">Fondamentaux numériques </a>
+                <a href="formations-Blockchain et web3.html">Blockchain et web3</a>
+                <a href="Formations - Coder avec ChatGPT.html">Coder avec chatGPT</a>
+                <a href="Formations - Data&amp;IA.html">Data&amp;IA </a>
+                <a href="Formations - Minimalist Skills.html"> Minimalist Skills</a>
+            </div>
+        </div>
+         <a href="{% url 'financiement:offer_list' %}">Financements</a>
+        <a href="blog 1.html">Blog</a>
+         <a href="{% url 'financiement:exposition' %}">Nouveauté</a>
+    </div>
+
+    <div class="right-items">
+        <!-- Right-aligned items go here -->
+        <div class="dropdown">
+            <button class="dropbtn">Espace entreprise
+            </button>
+            <div class="dropdown-content">
+                <a href="#.html">Former votre team </a>
+                <a href="#.html">Data consulting</a>
+                <a href="#.html">Data marketing</a>
+                <a href="#.html">Data design </a>
+                <a href="#.html"> Partenariat</a>
+            </div>
+        </div>
+        <a href="#"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
+        <a href="#" class="w3-bar-item  "><i class="fas fa-user-alt" aria-hidden="true"></i></a>
+        <a href="#" class="w3-bar-item "><i class="fa fa-globe" aria-hidden="true"></i></a>
+    </div>
+</nav>
+</body>
+</html>

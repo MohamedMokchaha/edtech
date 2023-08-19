@@ -1,0 +1,559 @@
+{% extends 'layouts/layout_light.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Sign IN {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+{% load static %}
+{% block content %}
+<!-- Header END -->
+
+<!-- **************** SCRIPT **************** -->
+
+<link rel="icon" type="image/x-icon" href="{% static 'assets/img/logos/minimaliste.png' %}">
+<link rel="shortcut icon" type="image/png" href="{% static 'assets/img/logos/minimaliste.png' %}"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+
+<!-- **************** MAIN CONTENT START **************** -->
+
+
+{% include 'includes/financement_navbar.html' %}
+
+<br><br><br>
+<!-- The App Section -->
+<div class="container">
+
+  <div class="row">
+
+
+    <div class="column-66">
+	 <h1 class="xlarge-font"><b>Comment financer votre formation ?</b></h1>
+       <p><span style="font-size:20px">Quelle que soit votre situation professionnelle, nous avons forcément une solution de financement pour vous..</span>
+	  <br><br><br><br><br>
+	<a href="{% url 'financiement:candidate' %}" class="btn btn-success mb-0 mt-1 me-2">Démarrer ma candidature</a>
+        <a href="{% url 'financiement:formations' %}" class="btn btn-outline-success mb-0 mt-1 ms-2">Découvrir les Formations</a>
+
+	</p></div>
+
+    <div class="column-33">
+        <br><br>
+        <img src="{% static 'assets/img/finance.jpg' %}" width="400" height="471">
+    </div>
+
+</div>
+
+  <div id="navbar">
+  <a href="#Demandeur d'emploi">Demandeur d'emploi</a>
+  <a href="#Salarié">Salarié</a>
+  <a href="#Travailleur indépendant">Travailleur indépendant</a>
+  <a href="#Etudiant">Etudiant</a>
+  <a href="#Alternance">Alternance</a>
+</div>
+  <hr class="colored-line">
+
+</div>
+
+
+
+
+
+<div class="container">
+  <div class="box" style="background-color:#ffffff">
+    {% for offer in offers %}
+    <div class="offer-box">
+      <div class="row">
+        <div class="column-33">
+          <button class="w3-button w3-white w3-xlarge w3-left image-button">
+            <img src="{% static 'assets/img/logos/minimaliste.png' %}" alt="logo" width="300" height="180" class="image-frame">
+          </button>
+        </div>
+        <div class="column-66">
+          <h1 class="large-font" style="color:black;"><b>{{ offer.get_type_display }}</b></h1>
+          <p><span style="font-size:24px">{{ offer.name }}</span><br>
+            {{ offer.desc }}</p>
+          <div><hr class="colored-line3"></div>
+          <p><span style="font-size:20px">Les avantages :</span><br>
+            {{ offer.advantages }}</p>
+          <div><hr class="colored-line3"></div>
+          <button class="buttonC buttonC">Démarrer mon inscription</button>
+        </div>
+      </div>
+    </div>
+    <hr class="offer-separator"> <!-- Ligne de séparation entre les offres -->
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+	<!--Footer -->
+	<div id="bottomMenu">
+	<a href="#">A propos de nous</a>
+     <a href="mentions-légale.html">Mentions légales</a>
+     <a href="#">Cookies</a>
+	 <a href="Boutique.html">Boutique</a>
+     <a href="#">Contactez-nous</a>
+
+</div>
+
+
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+
+
+<!-- script du navbar2 -->
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<!-- script de bar menu a droite -->
+<script>
+
+function openRightMenu() {
+  document.getElementById("rightMenu").style.display = "block";
+}
+
+function closeRightMenu() {
+  document.getElementById("rightMenu").style.display = "none";
+}
+</script>
+<style>
+
+
+.offer-separator {
+  border-top: 2px solid #dddddd; /* Couleur et style de la ligne de séparation */
+  margin-top: 20px; /* Espacement entre les offres */
+  margin-bottom: 20px; /* Espacement après la ligne de séparation */
+}
+
+
+body {
+  margin: 0;
+
+}
+
+
+
+.w3-button a {
+  margin-right: 10px; /* Ajoute un espace de 10 pixels à droite de chaque icône */
+ font-size: 24px;
+
+}
+
+.w3-buttonA a {
+  margin-right: 10px; /* Ajoute un espace de 10 pixels à droite de chaque icône */
+ font-size: 24px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Bottom menu */
+
+
+#bottomMenu {
+  position: fixed;
+  bottom: -50px; /* Adjust this value to hide the menu off-screen initially */
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #ffffff;
+  color: #a6a6a6;
+  text-align: center;
+  transition: bottom 0.3s ease-in-out;
+
+}
+
+#bottomMenu.show {
+  bottom: 0;
+}
+
+#bottomMenu a {
+  color: #a6a6a6;
+  text-align: center;
+  display: inline-block;
+  padding: 15px 100px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0px auto;
+
+}
+
+#bottomMenu a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+
+
+
+
+* {
+  box-sizing:border-box;
+
+
+}
+.container {
+  padding: 64px;
+   margin: auto;
+  width: 80%;
+
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+.column-66 {
+  float: left;
+  width: 66.66666%;
+  padding: 20px;
+}
+
+.column-33 {
+  float: left;
+  width: 33.33333%;
+  padding: 20px;
+}
+
+.large-font {
+  font-size: 48px;
+}
+
+.xlarge-font {
+  font-size: 54px
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #04AA6D;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .column-66,
+  .column-33 {
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    margin: auto;
+  }
+}
+/*code bes bottons decouvrez la formations et inscrivez vous*/
+.buttonA {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 14px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+ border-radius: 8px;
+}
+
+.buttonA {
+  background-color: #009933;
+  color: white;
+  border: 2px solid #009933;
+}
+.buttonB {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+   padding: 14px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.buttonB {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.buttonB:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+.buttonC {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+   padding: 14px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+
+}
+
+.buttonC {
+  background-color: #f1f1f1;
+  color: black;
+  border: 2px solid #4CAF50;
+
+}
+.buttonC:hover {
+  background-color: #4CAF50;
+  color: #f1f1f1;
+}
+
+.buttonD {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+   padding: 12px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.buttonD {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.buttonD:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+/*ligne coloré*/
+.colored-line {
+  border: none;
+  height: 2px;
+  background-color:#4CAF50; /* Remplacez par la couleur souhaitée */
+}
+
+/*code du nav bar 2*/
+
+#navbar {
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+   width: 20%;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ffffff;
+  color: #4CAF50;
+}
+
+#navbar a.active {
+  background-color: #ffffff;
+  color: black;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 85%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+/*bordure du box contenant salarie , demandeur d'emploi*/
+.box {
+  border: 1px solid #808080; /* Ajoute une bordure de 2 pixels de largeur, solide et noire */
+  padding: 10px; /* Ajoute de l'espace à l'intérieur de la boîte */
+}
+
+/*ligne coloré gris */
+.colored-line1 {
+  border: none;
+  height: 1px;
+  background-color:#808080; /* Remplacez par la couleur souhaitée */
+}
+
+/*ligne coloré blanc */
+.colored-line3 {
+  border: none;
+  height: 2px;
+  background-color: #ffffff; /* Remplacez par la couleur souhaitée */
+}
+
+/*ligne verticale*/
+.vl {
+  border-left: 6px solid green;
+  height: 200px;
+}
+
+/*code su search box in the navbar */
+
+
+/*style bu box extrieur avant hover */
+form{
+    position: relative;
+    top: 40%;
+    left: 95%;
+    transform: translate(-100%,0%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 2px solid #ffffff;/*couleur du box exterieur */
+    padding: 5px;
+
+}
+/*position du mot search dans le box*/
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 45.5px;
+    height: 45.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.8em;
+    transition: all 1s;
+
+}
+/*style du box exterieur après le hover */
+form:hover{
+    width: 300px;
+    cursor: pointer;
+	 border: 2px solid #f1f1f1;
+
+
+
+}
+/*style du field input dnas le box après hover*/
+form:hover input{
+    display: block;
+	width: 100%;
+	float:left;
+
+}
+/*style d'icone après le hover  */
+form:hover .fa{
+    background: #ffffff;
+    color: #00802b;
+}
+
+.image-button {
+  border: none; /* Supprimer la bordure par défaut du bouton */
+  background-color: transparent; /* Rendre l'arrière-plan transparent */
+}
+
+.image-frame {
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Définir le cadre transparent */
+  border-radius: 8px; /* Ajouter des coins arrondis au cadre */
+  padding: 4px; /* Ajouter un peu d'espace entre le cadre et l'image */
+}
+
+</style>
+
+
+<!-- MAIN END -->
+<!-- Bootstrap JS -->
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
+
+
