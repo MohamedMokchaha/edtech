@@ -51,7 +51,7 @@ def login_view(request):
 
 def Logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse("home_student"))
+    return HttpResponseRedirect(reverse("home"))
 
 def signup_view(request):
     if request.method == 'POST':
@@ -67,7 +67,7 @@ def signup_view(request):
             user.is_active = True
             user.save()
             login(request, user)
-            return HttpResponseRedirect(reverse("home"))
+            return HttpResponseRedirect(reverse("login"))
             #current_site = get_current_site(request)
             #message = render_to_string('student/accounts/acc_active_email.html', {
             #    'user':user, 'domain':current_site.domain,
