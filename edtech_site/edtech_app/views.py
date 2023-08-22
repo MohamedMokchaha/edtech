@@ -28,6 +28,7 @@ def home_student(request):
                'subcat': subcategories   
     }
     return render(request,'./student/home/landing_page.html',context)
+
 def login_view(request):
     if request.method == "GET":
         form = Studentloginform(request.GET or None)
@@ -40,9 +41,12 @@ def login_view(request):
         if user is not None:
             login(request,user)
             messages.info(request, f"You are now logged in as {username}.")
-            return HttpResponseRedirect(reverse("student_dash"))
+            return HttpResponseRedirect(reverse("home"))
         
-    context= {'form':form}
+    context= {
+            'form':form
+            }
+    
     return render(request,"student/accounts/login.html",context)
 
 def Logout_view(request):
@@ -52,27 +56,37 @@ def Logout_view(request):
 def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        
-        if form.is_valid():
+        resume_form = resumeForm(request.POST)
+        if form.is_valid() and resume_form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
+            user.is_active = False 
             user.save()
-            current_site = get_current_site(request)
-            message = render_to_string('student/accounts/acc_active_email.html', {
-                'user':user, 'domain':current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            
-            email_from = settings.EMAIL_HOST_USER
-            mail_subject = 'Activer votre Minimaliste compte.'
-            to_email = form.cleaned_data.get('email')
-            send_mail(mail_subject,message,email_from,[to_email])
-            return HttpResponse('Please confirm your email address to complete the registration.')
+            resume = resume_form.save(commit=False)
+            resume.user = user
+            resume.save()
+            user.is_active = True
+            user.save()
+            login(request, user)
+            return HttpResponseRedirect(reverse("home"))
+            #current_site = get_current_site(request)
+            #message = render_to_string('student/accounts/acc_active_email.html', {
+            #    'user':user, 'domain':current_site.domain,
+            #    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #    'token': account_activation_token.make_token(user),
+            #})
+            #
+            #email_from = settings.EMAIL_HOST_USER
+            #mail_subject = 'Activer votre Minimaliste compte.'
+            #to_email = form.cleaned_data.get('email')
+            #send_mail(mail_subject,message,email_from,[to_email])
+            #return HttpResponse('Please confirm your email address to complete the registration.')
             # return render(request, 'acc_active_sent.html')
     else:
         form = SignUpForm()
-    return render(request, './student/accounts/register.html', {'form': form})
+        resume_form = resumeForm()
+    return render(request, './student/accounts/register.html', {'form': form,'resumeForm':resume_form})
+
+
 
 def activate(request, uidb64, token):
     try:

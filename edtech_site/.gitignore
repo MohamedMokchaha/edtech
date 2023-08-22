@@ -1,0 +1,14 @@
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore migration files for Django or other frameworks
+/migrations/
+
+# Ignore static files (assuming you're using a framework like Django)
+/static/
+
+# Ignore local development environment variables
+.env
